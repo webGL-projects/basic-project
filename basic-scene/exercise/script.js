@@ -1,7 +1,7 @@
 console.log("Hello Three JS!");
 
 // Call the Three Js library
-console.log(THREE); // this an old way to call the three js library
+console.log(THREE); // this an old way to call the three js library also this method has two limitaions: 1. we only have access to core classes we can't use orbitControls for example 2. when opening an HTML file the browser won't let you execute JS instruction due to security reasons you won't be able to load texures or models to run JS we need to use build tools like vite webpack .etc
 
 // Scene
 const scene = new THREE.Scene(); // this is how we create a scene
