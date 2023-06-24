@@ -1,3 +1,5 @@
+import * as THREE from 'three'; // This the way we call Three JS using Vite
+
 console.log("Hello Three JS!");
 
 // Call the Three Js library
