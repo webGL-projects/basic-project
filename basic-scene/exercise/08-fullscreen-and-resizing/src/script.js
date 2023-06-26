@@ -46,9 +46,13 @@ window.addEventListener('resize', () => {
     camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
 
+ 
+
     // update renderer
     renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) // in case the user changes the window from a screen to another
 })
+
 
 /**
  * Camera
@@ -69,6 +73,19 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 renderer.setSize(sizes.width, sizes.height)
+
+   /*
+    Pixel Ratio:
+      it corresponds to how many physical pixels you have on the screen for one pixel unit on the software part
+    Pixel ratio greater than 1 cause blurry render and stairs effect on the edges
+    pixel ratio of 2 means 4 times more pixels to render , PR of 3 means 9 times the pixels and so on
+    Hisgest pixel ratios are usually on the weakest devices - mobiles 
+
+    to get the pixel ratio we can use window.devicePixelRatio to update thr renderer accordingly
+    we need to limit the pixelRatio because in devices with higher PR it will be too much for the device to handle
+    */
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) // Limiting the device Pixel Ratio to 2 
+
 
 /**
  * Animate
