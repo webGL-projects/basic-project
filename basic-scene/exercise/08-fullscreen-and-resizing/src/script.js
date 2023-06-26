@@ -35,6 +35,7 @@ const sizes = {
 when we change the size of the browser the canvas does not resize, to solve it we need to use size listeners
 */ 
 
+// resize listener
 window.addEventListener('resize', () => {
     console.log('Window has been resized!!');
 
@@ -53,6 +54,24 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) // in case the user changes the window from a screen to another
 })
 
+// Double click listener
+
+/*
+ this used to support full screen mode
+
+ to go to fullscreen mode use requestFullscreen() on the concerned element (canvas)
+ */
+window.addEventListener('dblclick', () => {
+    console.log('Double Click!!');
+
+    if(!document.fullscreenElement){
+        console.log('Go Fullscreen!!');
+        canvas.requestFullscreen()
+    } else {
+        console.log('Leave Fullscreen!!');
+        document.exitFullscreen()
+    }
+})
 
 /**
  * Camera
