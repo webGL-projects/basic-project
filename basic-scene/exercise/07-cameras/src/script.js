@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 /*
 Cursor
@@ -88,6 +88,19 @@ console.log(camera.position.length())
 camera.lookAt(mesh.position)
 scene.add(camera)
 
+// Controls
+
+/*
+OrbitControls needs the camera as a parameter to control it, and a DOM element for mouse events
+The animation is harsh so we use something called damping 
+damping will smooth the animation by adding some kind of acceleration and friction 
+*/
+
+const controls = new OrbitControls(camera, canvas) // this by default looks at the center of the canvas
+// controls.target.y = 1; // this changes the target from the center (above the element)
+// controls.update()
+controls.enableDamping = true 
+
 // Renderer
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas
@@ -109,12 +122,12 @@ const tick = () =>
     // camera.position.y = - cursor.y * 10; // the Y-axis in threeJS is +ve Going up so we must invert the y-axis value either here or above i will do it here
     
     // to move the camera around the center of the scene we use Math.sin() Math.cos() and Math.PI
-    camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 2;
-    camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 2;
-    camera.position.y = cursor.y * 2;
-
-    camera.lookAt(mesh.position) // move the camera arounfd the object still can't see the back of the cube
+    // camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 2;
+    // camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 2;
+    // camera.position.y = cursor.y * 2;
+    // camera.lookAt(mesh.position) // move the camera arounfd the object still can't see the back of the cube
     
+
     /* You use build-in ThreeJS controlsb to do the same thing
     
     1. fly control enable moving the camera like in a spcaeship
@@ -138,6 +151,12 @@ const tick = () =>
     Darg control: it has nothing to do with camera but it is used to grag objects
     https://threejs.org/docs/index.html?q=controls#examples/en/controls/DragControls
     */
+
+    //Update controls 
+    /*
+        when using damping we need to update the the controls at every frame
+    */
+   controls.update()
     
     // Render
     renderer.render(scene, camera)
