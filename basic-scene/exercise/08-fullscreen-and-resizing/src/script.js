@@ -31,6 +31,25 @@ const sizes = {
 
 }
 
+/* 
+when we change the size of the browser the canvas does not resize, to solve it we need to use size listeners
+*/ 
+
+window.addEventListener('resize', () => {
+    console.log('Window has been resized!!');
+
+    // update sizes
+    sizes.width = window.innerWidth;
+    sizes.height = window.innerHeight;
+
+    // update the camera
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    // update renderer
+    renderer.setSize(sizes.width, sizes.height)
+})
+
 /**
  * Camera
  */
