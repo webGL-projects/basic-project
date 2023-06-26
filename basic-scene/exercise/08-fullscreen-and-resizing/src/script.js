@@ -22,8 +22,13 @@ scene.add(mesh)
  * Sizes
  */
 const sizes = {
-    width: 800,
-    height: 600
+    // width: 800,
+    // height: 600
+
+    // to get the viewport width and height we use
+    width: window.innerWidth,
+    height: window.innerHeight // these method have margin so we need to do some css
+
 }
 
 /**
