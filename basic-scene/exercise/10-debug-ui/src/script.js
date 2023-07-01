@@ -24,6 +24,32 @@ https://github.com/wearekuva/oui
 
 */
 
+/*
+ Debug
+*/
+
+const gui = new dat.GUI();
+
+/*
+    This creates a debug UI but it will be empty wecan add:
+     1. Range: for numbers with minimum and maximum value
+     2. color: for colors with various formats
+     3. checkbox: for booleans (true or false)
+     4. select: for a choice from a list of values
+     5. button: to trigger functions
+     6. Folder: to roganize the panel if you have too many elements
+    
+    gui.add(object, name of tweak) we can add more parameters like min, max and step
+
+    we can also use the min(), max(), strp() methods 
+
+    we can change the name with name()
+
+    lil.gui will change the type of tweak according to the type of property
+
+    color use addColor()
+*/
+
 /**
  * Base
  */
@@ -36,10 +62,39 @@ const scene = new THREE.Scene()
 /**
  * Object
  */
+
+const colorFormats = {
+	string: '#ffffff',
+	int: 0xffffff,
+	object: { r: 1, g: 1, b: 1 },
+	array: [ 1, 1, 1 ],
+    spin: () => {
+        console.log('spin')
+        gsap.to(mesh.rotation, { duration: 1, y: mesh.rotation.y + Math.PI *2 })
+    }
+};
+
 const geometry = new THREE.BoxGeometry(1, 1, 1)
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+const material = new THREE.MeshBasicMaterial({ color: colorFormats.string })
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
+
+// range
+gui.add(mesh.position, 'x').min(-3).max(3).step(0.01) // debug UI
+gui.add(mesh.position, 'y', -3, 3, 0.01).name('Elevation') // debug UI
+gui.add(mesh.position, 'z', -3, 3, 0.01) // debug UI
+
+// booleans 
+gui.add(mesh, 'visible') // show and hide the mesh
+gui.add(material, 'wireframe')
+
+// color 
+ gui.addColor(colorFormats, 'string').onChange( () => {
+    material.color.set(colorFormats.string)
+ })
+
+ // Functions
+ gui.add(colorFormats, 'spin')
 
 /**
  * Sizes
