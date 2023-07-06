@@ -4,6 +4,30 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 THREE.ColorManagement.enabled = false
 
 /**
+ * Textures
+ */
+const textureLoader = new THREE.TextureLoader()
+
+const doorColorTexture = textureLoader.load('/textures/door/color.jpg')
+const doorAlphaTexture = textureLoader.load('/textures/door/alpha.jpg')
+const doorAmbientOcclusionTexture = textureLoader.load('/textures/door/ambientOcclusion.jpg')
+const doorHeightTexture = textureLoader.load('/textures/door/height.jpg')
+const doorNormalTexture = textureLoader.load('/textures/door/normal.jpg')
+const doorMetalnessTexture = textureLoader.load('/textures/door/metalness.jpg')
+const doorRoughnessTexture = textureLoader.load('/textures/door/roughness.jpg')
+
+const matcapTexture = textureLoader.load('/textures/matcaps/1.png')
+// const matcapTexture = textureLoader.load('/textures/matcaps/2.png')
+// const matcapTexture = textureLoader.load('/textures/matcaps/3.png')
+// const matcapTexture = textureLoader.load('/textures/matcaps/4.png')
+// const matcapTexture = textureLoader.load('/textures/matcaps/5.png')
+// const matcapTexture = textureLoader.load('/textures/matcaps/6.png')
+// const matcapTexture = textureLoader.load('/textures/matcaps/7.png')
+// const matcapTexture = textureLoader.load('/textures/matcaps/8.png')
+
+const gradientTexture = textureLoader.load('/textures/gradients/3.jpg')
+
+/**
  * Base
  */
 // Canvas
@@ -15,8 +39,49 @@ const scene = new THREE.Scene()
 /**
  * Objects
  */
-const material = new THREE.MeshBasicMaterial()
+// const material = new THREE.MeshBasicMaterial()
 
+// // map a texture on the material
+// material.map = doorColorTexture
+
+// // Add color
+// material.color = new THREE.Color('#ff0000')
+// material.color = new THREE.Color('#f00')
+// material.color = new THREE.Color('red')
+// material.color = new THREE.Color('rgb(255, 0, 0)')
+// material.color = new THREE.Color(0xff0000)
+
+// // Show Wireframe
+// // material.wireframe = true
+
+// // opacity
+// material.transparent = true // also used for alphaMap
+// material.opacity = 0.5
+
+
+// // alphaMap controls the transparency with a texture 
+// material.alphaMap = doorAlphaTexture
+
+// // Side lets you decide which side of a face is visible THREE.FrontSide (default) THREE.BackSide THREE.DoubleSide
+// material.side = THREE.DoubleSide
+
+
+// Mesh Normal Material
+// const material = new THREE.MeshNormalMaterial()
+
+// // Flat Shading
+// material.flatShading = true
+
+// Mesh Mar Cap Material
+// const material = new THREE.MeshMatcapMaterial()
+// material.matcap = matcapTexture
+
+// Mesh Depth Material 
+const material = new THREE.MeshDepthMaterial()
+
+
+
+// Istantiating materials
 const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(0.5, 16, 16),
     material
@@ -34,7 +99,22 @@ const torus = new THREE.Mesh(
 )
 torus.position.x = 1.5
 
+
+
 scene.add(sphere, plane, torus)
+
+/**
+ * Lights
+ */
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+scene.add(ambientLight)
+
+const pointLight = new THREE.PointLight(0xffffff, 0.5)
+pointLight.position.x = 2
+pointLight.position.y = 3
+pointLight.position.z = 4
+scene.add(pointLight)
+
 
 /**
  * Sizes
@@ -86,11 +166,39 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 /**
  * Animate
  */
+// const clock = new THREE.Clock()
+
+// const tick = () =>
+// {
+//     const elapsedTime = clock.getElapsedTime()
+
+//     // Update controls
+//     controls.update()
+
+//     // Render
+//     renderer.render(scene, camera)
+
+//     // Call tick again on the next frame
+//     window.requestAnimationFrame(tick)
+// }
+
+/**
+ * Animate
+ */
 const clock = new THREE.Clock()
 
 const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
+
+    // Update objects
+    sphere.rotation.y = 0.1 * elapsedTime
+    plane.rotation.y = 0.1 * elapsedTime
+    torus.rotation.y = 0.1 * elapsedTime
+
+    sphere.rotation.x = 0.15 * elapsedTime
+    plane.rotation.x = 0.15 * elapsedTime
+    torus.rotation.x = 0.15 * elapsedTime
 
     // Update controls
     controls.update()
