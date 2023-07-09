@@ -1,8 +1,18 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'lil-gui'
-
+// import typeface from 'fonts/helvetiker_regular.typeface.json' does not work
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 THREE.ColorManagement.enabled = false
+
+const fontLoader = new FontLoader()
+
+fontLoader.load(
+    'fonts/helvetiker_regular.typeface.json',
+    (font) => {
+        console.log('Loaded')
+    }
+)
 
 /**
  * Base
