@@ -15,6 +15,7 @@ const gui = new dat.GUI()
  * Textures
  */
 const textureLoader = new THREE.TextureLoader()
+const cubeTextureLoader = new THREE.CubeTextureLoader()
 
 const doorColorTexture = textureLoader.load('/textures/door/color.jpg')
 const doorAlphaTexture = textureLoader.load('/textures/door/alpha.jpg')
@@ -34,6 +35,16 @@ const matcapTexture = textureLoader.load('/textures/matcaps/1.png')
 // const matcapTexture = textureLoader.load('/textures/matcaps/8.png')
 
 const gradientTexture = textureLoader.load('/textures/gradients/5.jpg')
+
+const environmentMapTexture = cubeTextureLoader.load([
+    '/textures/environmentMaps/1/px.jpg',
+    '/textures/environmentMaps/1/nx.jpg',
+    '/textures/environmentMaps/1/py.jpg',
+    '/textures/environmentMaps/1/ny.jpg',
+    '/textures/environmentMaps/1/pz.jpg',
+    '/textures/environmentMaps/1/nz.jpg'
+]) // six images to repesent the 6 sides of the cube 
+
 
 /**
  * Base
@@ -104,24 +115,27 @@ const scene = new THREE.Scene()
 
 // Mesh Standard Material 
 const material = new THREE.MeshStandardMaterial()
-material.roughness = 1
-material.metalness = 0
+material.roughness = 0.2
+material.metalness = 0.7
 
-material.map = doorColorTexture
-material.aoMap = doorAmbientOcclusionTexture
-material.aoMapIntensity = 1
+material.envMap = environmentMapTexture;
 
-material.displacementMap = doorHeightTexture // it looks bad because we don't have enough vertecies and the displacement os too strong
-material.displacementScale = 0.05
 
-material.metalnessMap = doorMetalnessTexture
-material.roughnessMap = doorRoughnessTexture
+// material.map = doorColorTexture
+// material.aoMap = doorAmbientOcclusionTexture
+// material.aoMapIntensity = 1
 
-material.normalMap = doorNormalTexture // details
-material.normalScale.set(0.5, 0.5)
+// material.displacementMap = doorHeightTexture // it looks bad because we don't have enough vertecies and the displacement os too strong
+// material.displacementScale = 0.05
 
-material.transparent = true // for the alpha map to show
-material.alphaMap = doorAlphaTexture 
+// material.metalnessMap = doorMetalnessTexture
+// material.roughnessMap = doorRoughnessTexture
+
+// material.normalMap = doorNormalTexture // details
+// material.normalScale.set(0.5, 0.5)
+
+// material.transparent = true // for the alpha map to show
+// material.alphaMap = doorAlphaTexture 
 
 // debug UI
 gui.add(material, 'metalness').min(0).max(1).step(0.0001)

@@ -104,3 +104,49 @@ the roughness and metalness affect each map respectevly so the reflections looks
 normalMap will fake the normals orintation and add details on the surface regardless of the subdivision
 
 https://threejs.org/docs/#api/en/materials/MeshStandardMaterial
+
+5. Mesh Physic Material: it is the same as standard but with support of a clear coat effect
+
+https://threejs.org/docs/index.html#api/en/materials/MeshPhysicalMaterial
+
+6. Shader Material: used to create my own material
+
+https://threejs.org/docs/index.html#api/en/materials/ShaderMaterial
+
+7. Raw Shader Material: used to create my own material
+
+https://threejs.org/docs/index.html#api/en/materials/RawShaderMaterial
+
+
+## Points Material 
+it can be used with praticles
+
+## Environment Map 
+it is an image of what's surronding the scene it can be used for reflection or refraction but also for general lighting environment maps are supported by multiple material but we will use MeshStandardMaterial
+
+Three.js supports cube environment maps
+
+to load the texture we use CubeTextureLoader 
+
+https://threejs.org/docs/index.html#api/en/loaders/CubeTextureLoader
+
+px: positive x
+nx: negative x
+py: positive y
+ny: negative y
+pz: positive z
+nz: negative z
+
+we use environmentMapTexture in the envMap property of the material
+
+you can search for environment maps from the web
+
+1. HDRHaven hunderds of awesome HDRIs ( High Dynamic Range Imaging ) not Cube map 
+
+https://polyhaven.com/
+
+you can use this website to transform the HDRI to Cube Map
+
+https://matheowis.github.io/HDRI-to-CubeMap/
+
+
