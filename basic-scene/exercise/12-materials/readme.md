@@ -67,3 +67,40 @@ https://threejs.org/docs/index.html#api/en/lights/AmbientLight
 Point Light: 
 
 https://threejs.org/docs/#api/en/lights/PointLight
+
+## Materials that react to light:
+
+1. Mesh ambertMaterial: it has new properties related to lights but we will see those later with a more adquate material, it's performant but we can see strange patterns on the geometry 
+
+https://threejs.org/docs/#api/en/materials/MeshLambertMaterial
+
+2. Mesh Phong Material: ie is similar to the MeshLambrtMaterial, the the strange patters are less visible, and you can see the light reflection, and it is less performant than lambrt
+
+we can control the light reflection with shininess and the color of this reflection with specular
+
+https://threejs.org/docs/#api/en/materials/MeshPhongMaterial
+
+3. Mesh Toon Material: it is similar to ambert but cartoonish
+
+we can add more steps to the coloration, you can use the gradientMAp property and use the greiedentTexture
+
+we see a gradient instead of a clear seperation because the gradient is small and the magFilter tries to fix it with the mipmapping 
+
+to solve it we set the minFilter and magFilter to THREE.NearestFilter and deactivate the mipmapping with gradientTexture.generateMipmaps = false
+
+https://threejs.org/docs/#api/en/materials/MeshToonMaterial
+
+
+4. Mesh Standard Material: it use Physically Based Rendering principles (PBR) like Lambrt and Phong it supports lights but with a more realistic algrorithm and better parameters like roughness and metallness
+
+aoMap: ambient Occlusion Map will add shadows where the texture is dark we must add a second set of UV named uv2
+
+we add oaMap with the doorAmbientOcclusionTexture texture and control the intensity with aoMapIntensity 
+
+instead of specifying uniform metalness and roughness for the whore geometry we can use metalness and roughness
+
+the roughness and metalness affect each map respectevly so the reflections looks weird
+
+normalMap will fake the normals orintation and add details on the surface regardless of the subdivision
+
+https://threejs.org/docs/#api/en/materials/MeshStandardMaterial

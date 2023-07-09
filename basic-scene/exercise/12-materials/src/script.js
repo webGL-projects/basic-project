@@ -1,7 +1,15 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import * as dat from 'lil-gui'
+
 
 THREE.ColorManagement.enabled = false
+
+/*
+Debug UI
+*/
+const gui = new dat.GUI()
+
 
 /**
  * Textures
@@ -25,7 +33,7 @@ const matcapTexture = textureLoader.load('/textures/matcaps/1.png')
 // const matcapTexture = textureLoader.load('/textures/matcaps/7.png')
 // const matcapTexture = textureLoader.load('/textures/matcaps/8.png')
 
-const gradientTexture = textureLoader.load('/textures/gradients/3.jpg')
+const gradientTexture = textureLoader.load('/textures/gradients/5.jpg')
 
 /**
  * Base
@@ -77,24 +85,67 @@ const scene = new THREE.Scene()
 // material.matcap = matcapTexture
 
 // Mesh Depth Material 
-const material = new THREE.MeshDepthMaterial()
+// const material = new THREE.MeshDepthMaterial()
+
+// Mesh Lambert Material
+// const material = new THREE.MeshLambertMaterial()
+
+// MEsh Phong Material 
+// const material = new THREE.MeshPhongMaterial()
+// material.shininess = 100
+// material.specular = new THREE.Color(0xff0000)
+
+// Mesh Toon Material
+// const material = new THREE.MeshToonMaterial()
+// material.gradientMap = gradientTexture
+// gradientTexture.minFilter = THREE.NearestFilter
+// gradientTexture.magFilter = THREE.NearestFilter
+// gradientTexture.generateMipmaps = false
+
+// Mesh Standard Material 
+const material = new THREE.MeshStandardMaterial()
+material.roughness = 1
+material.metalness = 0
+
+material.map = doorColorTexture
+material.aoMap = doorAmbientOcclusionTexture
+material.aoMapIntensity = 1
+
+material.displacementMap = doorHeightTexture // it looks bad because we don't have enough vertecies and the displacement os too strong
+material.displacementScale = 0.05
+
+material.metalnessMap = doorMetalnessTexture
+material.roughnessMap = doorRoughnessTexture
+
+material.normalMap = doorNormalTexture // details
+material.normalScale.set(0.5, 0.5)
+
+material.transparent = true // for the alpha map to show
+material.alphaMap = doorAlphaTexture 
+
+// debug UI
+gui.add(material, 'metalness').min(0).max(1).step(0.0001)
+gui.add(material, 'roughness').min(0).max(1).step(0.0001)
+gui.add(material, 'aoMapIntensity').min(0).max(10).step(0.0001)
+gui.add(material, 'displacementScale').min(0).max(1).step(0.0001)
+
 
 
 
 // Istantiating materials
 const sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(0.5, 16, 16),
+    new THREE.SphereGeometry(0.5, 64, 64),
     material
 )
 sphere.position.x = - 1.5
 
 const plane = new THREE.Mesh(
-    new THREE.PlaneGeometry(1, 1),
+    new THREE.PlaneGeometry(1, 1, 100, 100),
     material
 )
 
 const torus = new THREE.Mesh(
-    new THREE.TorusGeometry(0.3, 0.2, 16, 32),
+    new THREE.TorusGeometry(0.3, 0.2, 64, 128),
     material
 )
 torus.position.x = 1.5
