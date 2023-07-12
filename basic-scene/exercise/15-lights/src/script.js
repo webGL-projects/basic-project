@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'lil-gui'
+import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js'
 
 THREE.ColorManagement.enabled = false
 
@@ -19,14 +20,87 @@ const scene = new THREE.Scene()
 /**
  * Lights
  */
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-scene.add(ambientLight)
 
-const pointLight = new THREE.PointLight(0xffffff, 0.5)
-pointLight.position.x = 2
-pointLight.position.y = 3
-pointLight.position.z = 4
+// This example is from previous lessons
+
+// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+// scene.add(ambientLight)
+
+// const pointLight = new THREE.PointLight(0xffffff, 0.5)
+// pointLight.position.x = 2
+// pointLight.position.y = 3
+// pointLight.position.z = 4
+// scene.add(pointLight)
+
+
+// Ambeint Light
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5) // (color, intensity )
+scene.add(ambientLight)
+gui.add(ambientLight, 'intensity').min(0).max(1).step(0.001)
+
+// Directional Light
+
+const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3) // (color, intensity )
+directionalLight.position.set(1, 0.25, 0)
+scene.add(directionalLight)
+gui.add(directionalLight, 'intensity').min(0).max(1).step(0.001)
+
+// Hemisphere Light 
+
+const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 0.3) // (color (skyColor), groundColor, intensity)
+scene.add(hemisphereLight)
+gui.add(hemisphereLight, 'intensity').min(0).max(1).step(0.001)
+
+// Point Light
+
+const pointLight = new THREE.PointLight(0xff9000, 0.5, 10, 2) // (color, intensity, distance, fade)
+pointLight.position.set(1, - 0.5, 1)
 scene.add(pointLight)
+gui.add(pointLight, 'intensity').min(0).max(1).step(0.001)
+
+
+// Rect Area Light
+
+const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 2, 1, 1) // (colr, intensity, width, height)
+rectAreaLight.position.set(-1.5, 0, 1.5)
+rectAreaLight.lookAt(new THREE.Vector3())
+scene.add(rectAreaLight)
+gui.add(rectAreaLight, 'intensity').min(0).max(1).step(0.001)
+gui.add(rectAreaLight, 'width').min(0.1).max(10).step(0.1)
+gui.add(rectAreaLight, 'height').min(0.1).max(10).step(0.1)
+
+// Spot Light
+
+const spotLight = new THREE.SpotLight(0x78ff00, 0.5, 10, Math.PI * 0.1, 0.25, 1 ) // (color, intensity, distance, angle, penumbra, decay
+spotLight.position.set(0, 2, 3)
+gui.add(spotLight, 'intensity').min(0).max(1).step(0.001)
+gui.add(spotLight, 'distance').min(0.1).max(100).step(0.1)
+gui.add(spotLight, 'angle').min(0).max(1).step(0.001)
+gui.add(spotLight, 'penumbra').min(0).max(1).step(0.001)
+gui.add(spotLight, 'decay').min(0.1).max(10).step(0.1)
+
+scene.add(spotLight)
+
+spotLight.target.position.x = -0.75
+scene.add(spotLight.target)
+
+// Helpers
+
+const hemisphereLightHelper = new THREE.HemisphereLightHelper(hemisphereLight, 0.2)
+scene.add(hemisphereLightHelper)
+
+const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 0.2)
+scene.add(directionalLightHelper)
+
+const pointLightHelper = new THREE.PointLightHelper(pointLight, 0.2)
+scene.add(pointLightHelper)
+
+const spotLightHelper = new THREE.SpotLightHelper(spotLight)
+scene.add(spotLightHelper)
+
+const rectAreaLightHelper = new RectAreaLightHelper(rectAreaLight)
+scene.add(rectAreaLightHelper)
 
 /**
  * Objects
