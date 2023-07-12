@@ -17,4 +17,15 @@ npm run build
 
 # Go Live
 there are some solution some them are 
-1. Traditional Hosting: they are OVH, 1and1 or Gandhi where you have to upload files manually by using FTP Client
+1. Traditional Hosting: they are OVH, 1and1 or Gandhi where you have to upload files manually by using FTP Client (Will not be used) 
+
+2. Vercel: it is 
+ a. modern hosting solution
+ b. continuous deployment (automatisation of testing, deployment, etc.)
+ c. developer friendly 
+ d. easy setup
+ e. for complex or simple projects 
+
+ 3. Netlify
+
+ 4. Github Pages
