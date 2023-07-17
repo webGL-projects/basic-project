@@ -20,28 +20,70 @@ const scene = new THREE.Scene()
  * Textures
  */
 const textureLoader = new THREE.TextureLoader()
+const particleTexture = textureLoader.load('/textures/particles/2.png')
 
 /**
  * Particles
  */
 
 // Geometry
-const particlesGeometry = new THREE.SphereGeometry(1, 32, 32)
+// const particlesGeometry = new THREE.SphereGeometry(1, 32, 32)
+
+// Star look
+const particlesGeometry = new THREE.BufferGeometry()
+const count = 20000
+
+const positions = new Float32Array(count * 3)
+const colors = new Float32Array(count * 3)
+
+for(let i=0; i< count * 3; i++){
+    positions[i] = (Math.random() - 0.5) * 10
+    colors[i] = Math.random()
+}
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3))
 
 // Material
 const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.02, // particle size
-    sizeAttenuation: true // for perspective 
+    size: 0.1, // particle size
+    sizeAttenuation: true, // for perspective 
+    // color: '#ff88cc',
+    // map: particleTexture
+    transparent: true,
+    alphaMap: particleTexture,
+    // alphaTest:0.001, // this used to tell the GPU not to render the black part of the texture
+    // depthTest: false
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    vertexColors: true
 })
 
 // particlesMaterial.size = 32
 // particlesMaterial.sizeAttenuation = true
+// particlesMaterial.color = new THREE.Color('#ff88cc')
+// particlesMaterial.map = particleTexture
+// particlesMaterial.transparent = true
+// particlesMaterial.alphaMap = particleTexture
+// particlesMaterial.alphaTest = 0.001
+// particlesMaterial.depthTest = false
+// particlesMaterial.depthWrite =true
+// particlesMaterial.blending = THREE.AdditiveBlending
+// particlesMaterial.vertexColors = true
+
 
 // Points
 const particles = new THREE.Points(particlesGeometry, particlesMaterial)
 scene.add(particles)
 
 gui.add(particlesMaterial, 'size').min(0.001).max(0.1).step(0.01)
+
+// Cube
+// const cube = new THREE.Mesh(
+//     new THREE.BoxGeometry(),
+//     new THREE.MeshBasicMaterial()
+// )
+// scene.add(cube)
+
 
 
 /**
@@ -97,6 +139,20 @@ const clock = new THREE.Clock()
 const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
+
+    // update the particles 
+    // particles.rotation.y = elapsedTime * 0.2
+    // particles.position.y = - elapsedTime * 0.2
+
+    for( let i =0; i< count; i++){
+        const i3 = i * 3
+
+        const x = particlesGeometry.attributes.position.array[i3]
+        particlesGeometry.attributes.position.array[i3 + 1] = Math.sin(elapsedTime + x)
+
+    }
+    
+    particlesGeometry.attributes.position.needsUpdate = true
 
     // Update controls
     controls.update()
