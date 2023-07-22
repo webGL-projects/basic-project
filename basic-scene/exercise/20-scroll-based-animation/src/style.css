@@ -4,12 +4,15 @@
     padding: 0;
 }
 
-html,
+/* html,
 body
 {
     overflow: hidden;
-}
+} */
 
+html {
+    background-color: #1e1e20;
+}
 .webgl
 {
     position: fixed;
