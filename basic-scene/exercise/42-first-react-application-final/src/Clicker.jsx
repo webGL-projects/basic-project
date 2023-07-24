@@ -10,8 +10,7 @@ export default function Clicker({ increment, keyName, color })
     {
         buttonRef.current.style.backgroundColor = 'papayawhip'
         buttonRef.current.style.color = 'salmon'
-
-        const savedCount = parseInt(localStorage.getItem(keyName) ?? 0)
+         const savedCount = parseInt(localStorage.getItem(keyName) ?? 0) // the ?? is not a blunder hahahahah (Chess Joke) it is a nullish coalescing operator that returns the right-hand side operand when its left-hand value is undefined of null
         setCount(savedCount)
 
         return () =>
