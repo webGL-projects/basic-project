@@ -1,4 +1,4 @@
-import { OrbitControls, TransformControls, PivotControls, Html } from '@react-three/drei'
+import { OrbitControls, TransformControls, PivotControls, Html, Text } from '@react-three/drei'
 import { useRef } from 'react'
 
 export default function Experience()
@@ -44,6 +44,16 @@ export default function Experience()
             <meshStandardMaterial color="greenyellow" />
         </mesh>
 
-
+    <Text
+        font='./bangers-v20-latin-regular.woff'
+        fontSize={1}
+        color='salmon'
+        position-y={ 2 }
+        maxWidth={ 2 }
+        textAlign='center'
+    >I Love R3F!
+    
+    {/* <meshNormalMaterial /> */}
+    </Text>
     </>
 }
