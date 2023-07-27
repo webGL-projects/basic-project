@@ -102,3 +102,6 @@ https://gwfh.mranftl.com/fonts
 it works like most objects in the scene and we can play with its position, rotation and scale
 
 we can limit the width to see the line breaks with the maxWidth attribute
+
+## Float 
+makes the object float like a baloon in the air
