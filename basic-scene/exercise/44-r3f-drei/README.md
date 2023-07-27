@@ -41,3 +41,12 @@ the PivotControls visibility works like any object in the scene and will be hidd
 
 by default it has perspective, meaning it'll get smaller the futher away from the camera 
 
+## HTML
+Html will add a DOM element that will stick to your object
+
+we can add it to a <mesh> a <group> or anything that inherits from Object3D 
+
+we use wrapperClass to target the Html in css
+
+we can hide thew html, when an object is infront of it with the occlude attribute, to acheive that we need to have a refernce to the various objects that can occlude the html
+
