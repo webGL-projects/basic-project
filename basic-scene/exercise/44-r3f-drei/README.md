@@ -32,3 +32,12 @@ to fix the issue we can:
 OrbitControls conflict: to solve it we can add makeDefault to the <orbitControls>
 
 Modes: it is set as translate by default, but we can change it to rotate or scale with the mode attribute 
+
+Pivot Controls: is an alternative solution to dealing with gizmo with diferent features and it's for the developers
+
+it does not work as a group like the transformControls, if we want it to be in the center we will use the anchor attribute to change it's position (which is relative to the object)
+
+the PivotControls visibility works like any object in the scene and will be hidden if it os behind other objects, we use depthTest attribute with false value to render on top of the scene, we can control the look of it like the thickness of the lines with lineWidth and the colors of the axes with axisColor or the size with scale
+
+by default it has perspective, meaning it'll get smaller the futher away from the camera 
+
