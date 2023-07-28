@@ -12,3 +12,6 @@ Strict Mode will warn you about potential problems in the app
 After importting strictMode and wrapping the application with it it will show potential errors in the terminal and in the console
 
 StrictMOde will be ignored once the application is built
+
+## Browser Extension
+React Developer Tools is the most famouse one, it helps us to check and modify our components live 
