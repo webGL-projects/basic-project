@@ -77,5 +77,17 @@ https://github.com/pmndrs/leva/blob/main/docs/configuration.md
 
 we can't add it to the Experience component, because everything inside the canvas is intended for R3F, we can add lots of attributes like collapsed
 
+## Monitoring with r3f-pref
+https://github.com/utsuboco/r3f-perf
+https://twitter.com/onirenaud
 
+we can use traditional solutions like States.js
+
+as it's a R3F liberary it will be in the <canvas>
+
+by default it is located in the upper right corner which conflicts with leva, we can use the position attribute 
+
+it displays a crazy amount of useful information (draw calls, the memory usage, how long it took to render the scene, etc.) 
+
+if the time needed to draw is more than 0.6 seconds we reach the threshhold of bad FPS
 
