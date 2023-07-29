@@ -116,4 +116,51 @@ the usual way of setting a sun poisition is spherical coordinates
 * clreate a Vector3
 * Use its setFromSpherical method
 
+## Evironment Map
+we can use HDRI textures, it's like a 360 photo where the pixel data goes beyond the traditional color range
+
+ there is Environment Texture
+
+ we are going to use the environemnt map to illuminate the scene to prevent conflicts
+
+ we are going to use traditional cube textures
+
+if we want the environment to be the background we add it as an attribute  
+
+HDRI textures, we can use one image covering the surronding, it's like a 360 photo and it's usually in High Dynamic Range in order to make the illumination data more accurate
+
+it makes sense since light doesn't reakky stop at a range
+
+Website to find HDRI environement maps is
+https://polyhaven.com/hdris
+
+* download the HDR version not EXR
+* try to keep the resolution as small as possible 
+
+Presets: drei created presets that willl take the files directly from poly haven 
+https://github.com/pmndrs/drei/blob/master/src/helpers/environment-assets.ts
+
+we can add <mesh> inside the environemnt 
+
+by default the background of the environment map is black, we can change that
+
+using meshes to illuminate our scene sounds like a limited solution since light shouldn't be limited to the color spectrum, in real life, we should be able to make the red plane brighter, to our eyes, it should become white like when a heated metal reaches very high tempreture 
+
+using literal value like red, on the basic material doesn't allow us to control the actual intensity of the color, since color attribute is used to istantiate a Three.js color, we can also send an array containing the seperated red, green and blue values
+
+for that we use LightFormer helper 
+https://codesandbox.io/s/lwo219?file=/src/App.js:917-1016
+
+using it in realistic scenes with reflection will add a lot to the coposition and realism 
+
+adding the environment map to scene re-render it which will take some resourcese, if the environment map is used to illuminate the scene use small resolution 
+
+**Ground** 
+when using environment map as a background we have the feeling that objects are floating because the image is infinitely far 
+
+ By adding a ground attribute, the projection of the environment map will make it look as if the floor underneath the object is near
+
+ the ground is considered to be at the 0 elevation of the scene this means that, in theory our project are inside the ground
+
+ fix it by moving them up a little with their position-y attribute
  
