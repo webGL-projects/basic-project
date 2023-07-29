@@ -103,3 +103,17 @@ it looks good but it has limitations:
 * it pulls quite a lot on the performance 
 
 
+## Sky 
+
+https://threejs.org/examples/webgl_shaders_sky.html
+
+it is available in the sky helper
+
+this class is physics based and tries to reproduce a realistic sky according to various parameters like mieCoefficient, mieDirectionalG, rayleigh and trubidity (Very hard for now we will just move the sun)
+
+the usual way of setting a sun poisition is spherical coordinates 
+* create a Spherical 
+* clreate a Vector3
+* Use its setFromSpherical method
+
+ 
