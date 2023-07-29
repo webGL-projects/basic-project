@@ -96,9 +96,10 @@ the ContactShadow will render the whole scene a bit like the directional light d
 
 we can bake a shadow by setting the frames attribute on the <contactShadoe> to 1
 
-
-
-
-
+it looks good but it has limitations:
+* the shadows always comes from the front of the plane (positive y in our case)
+* it's not physically accurate
+* it blurs the shadow regardless of the distance from the objects
+* it pulls quite a lot on the performance 
 
 
