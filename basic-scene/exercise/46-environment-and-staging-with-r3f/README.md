@@ -163,4 +163,10 @@ when using environment map as a background we have the feeling that objects are 
  the ground is considered to be at the 0 elevation of the scene this means that, in theory our project are inside the ground
 
  fix it by moving them up a little with their position-y attribute
- 
+
+## Stage
+it has minimal configuration
+
+it will set environment map, shadows, two directional lights and center the scene
+
+we can change the directional lights preset ('rembrandt', 'portrait', 'upfront', 'soft') 
