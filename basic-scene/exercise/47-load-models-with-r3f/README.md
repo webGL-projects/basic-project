@@ -9,9 +9,6 @@ we need to send it the Three.js loader class we want to use and the path to the 
 
 https://threejs.org/docs/#examples/en/loaders/GLTFLoader
 
-https://github.com/pmndrs/gltfjsx
-https://gltf.pmnd.rs/
-
 the path started with ./ which should work in most cases './hamberger.glb' will look for the file in the same folder and the files located in the /public/ folder are made available like if they are at the root of the website 
 
 we need to add the model.scene somewhere in the JSX, to do that we need to use <primitive />
@@ -55,3 +52,20 @@ we use the clone helper
 
 the amount of geometries and shaders stays the same, it creates multiple meshes, but based on the same geometries and materials
 
+## GLTF to component
+if we want to change something in the model we need to traverse the model and find the right child save it some where and change what we want 
+
+other method is to use a 3D software 
+
+better is to have the model as a component with the parts in the model as JSX, that's what GLTF -> React Three Drie does
+
+https://github.com/pmndrs/gltfjsx
+https://gltf.pmnd.rs/
+
+the tool assumes that the model is available in the root directory 
+
+now we have much more control over the model
+
+the shadows looks weird with strips crossing the srface of the hamburger, this is called shadow acne and it's due to the model cating shadows on itself
+
+we can fix that by tweaking the bias or shadowBias on the directional light shadow
