@@ -14,3 +14,10 @@ the path started with ./ which should work in most cases './hamberger.glb' will 
 we need to add the model.scene somewhere in the JSX, to do that we need to use <primitive />
 
 <primitive /> is a holder for whatever we want to put in it, it's not a real object, but it's a container supported bt R3F what will handle and display whatever we put in its object attribute
+
+## Draco
+if we use the GLTF Loader we get an error, so we need DRACOLoader instance with setDRACOLoader()
+
+https://threejs.org/docs/#examples/en/loaders/DRACOLoader
+
+to do that we can pass a third argument to the useLoader() and send it a function that will give us access to the loader instance, we can associate a DRACOLoader instance 
