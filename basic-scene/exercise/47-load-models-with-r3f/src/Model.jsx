@@ -1,12 +1,14 @@
 
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, Clone } from '@react-three/drei'
 
 export default function Model(props) {
 
   const model = useGLTF('./hamburger-draco.glb')
   return (
     <>
-      <primitive object={model.scene} {...props} />
+      <Clone object={model.scene} {...props} position-x={ - 4 }/>
+      <Clone object={model.scene} {...props} position-x={ 0 }/>
+      <Clone object={model.scene} {...props} position-x={ 4 }/>
     </>
   );
 }

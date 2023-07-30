@@ -50,5 +50,8 @@ useGLTF takes care of everything so no need for the DRACO decoder
 
 preloding we can use it with the useGLTF even though it is a function it can have intances, the same file must be used 
 
+## Multiple instances
+we use the clone helper
 
+the amount of geometries and shaders stays the same, it creates multiple meshes, but based on the same geometries and materials
 
