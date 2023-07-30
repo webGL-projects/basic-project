@@ -48,5 +48,7 @@ R3F implements multiple loader helpers like useGLTF and useFBX
 
 useGLTF takes care of everything so no need for the DRACO decoder
 
-preloding we can use it with the useGLTF even though it is a function it can have intances
+preloding we can use it with the useGLTF even though it is a function it can have intances, the same file must be used 
+
+
 
