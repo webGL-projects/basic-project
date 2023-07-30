@@ -69,3 +69,20 @@ now we have much more control over the model
 the shadows looks weird with strips crossing the srface of the hamburger, this is called shadow acne and it's due to the model cating shadows on itself
 
 we can fix that by tweaking the bias or shadowBias on the directional light shadow
+
+## Animation
+drei has a helper named useAnimations
+
+since we have access to the animations of the model 
+
+we use AnimationAction to convert the animation using the aniamtions.actions object
+
+https://threejs.org/docs/?q=action#api/en/animation/AnimationAction
+
+before starting any of those actions, it's better to do it once the component finished rendering for the first time using useEffect
+
+R3f and useAnimation will take care of updating the animattion on each frame 
+
+crossFadeFrom will fade out the previouse action and fade in the next action
+
+animation control and cleanup phase: we want to give the user the ability to choose the animation, and fade the incoming animation so we don't get brutal change
