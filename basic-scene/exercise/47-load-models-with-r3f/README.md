@@ -43,4 +43,10 @@ in local servers, we don't see that, so we do network throttling we can activate
 
  Fallback is an attribut and it is what the user will see if the compnent is not ready (in our case, while the model is loading)
 
+ ## GLTF Loading with drei
+R3F implements multiple loader helpers like useGLTF and useFBX
+
+useGLTF takes care of everything so no need for the DRACO decoder
+
+preloding we can use it with the useGLTF even though it is a function it can have intances
 
