@@ -9,6 +9,9 @@ we need to send it the Three.js loader class we want to use and the path to the 
 
 https://threejs.org/docs/#examples/en/loaders/GLTFLoader
 
+https://github.com/pmndrs/gltfjsx
+https://gltf.pmnd.rs/
+
 the path started with ./ which should work in most cases './hamberger.glb' will look for the file in the same folder and the files located in the /public/ folder are made available like if they are at the root of the website 
 
 we need to add the model.scene somewhere in the JSX, to do that we need to use <primitive />
@@ -21,3 +24,23 @@ if we use the GLTF Loader we get an error, so we need DRACOLoader instance with 
 https://threejs.org/docs/#examples/en/loaders/DRACOLoader
 
 to do that we can pass a third argument to the useLoader() and send it a function that will give us access to the loader instance, we can associate a DRACOLoader instance 
+
+## Lazy Loading
+at the moment R3F is holding the rendering of the experience as long as everything isn't ready in our scene, this includes the loading of the model 
+
+because of theat it will show white sceen until the scene is fully rendered.
+
+in local servers, we don't see that, so we do network throttling we can activate the Network throttling to simulate a real-life experience with a model that takes time to load
+
+ 1. open the developer tools, go to network tab
+ 2. activate throttling
+
+ the default values aren't always adapted and you might want to add a custom connection speed (100Mbit/s in download works well in our case) (developer tolls must be open in order for the throttling to keep working)
+
+ this delay is bad because the user won't be able to see anything for a while instead we want the scene to be visible with the floor and once the model is loaded and ready it should appear
+
+ to acheive lazy loading we use <Suspense> tag, it is a React component that will wait for the process to be done before rendering the component
+
+ Fallback is an attribut and it is what the user will see if the compnent is not ready (in our case, while the model is loading)
+
+
