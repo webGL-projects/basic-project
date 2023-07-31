@@ -48,3 +48,13 @@ or the better solution is to create the material before the Experience
 
 when using this solution the textures looks bright because R3F automatically changed the encoding of the matcaoTexture when we used it in the <meshMatcapMaterial> and we need to do it matnaullt
 
+
+## Animating the Donuts
+we will use useFrame, but it needs a refernce to them 
+
+referring multiple objects is a bit tricky in react, so we sill use this silly solution 
+* using a group as a parent to the donuts so that we can refer all donuts through its children property
+ the problem with the <group> is that its sole putpose is to compenstate for a structral flaw, we don't need a Group, all we want is a way to loop on the donutts
+
+ a refernce is only an object with a current property containing what we want to save and keep, we are goint to create a refernce with its current beign an empty array and the donuts to that array ourselves 
+ sending avalue to useRef will set that value as the default current property of the refernce
