@@ -33,3 +33,18 @@ https://threejs.org/docs/#api/en/geometries/TorusGeometry
 
 
 [...Array(100)] ==> will create an empty array with 100 inecies to map over it
+
+## Optimization 
+we should only have 2 geometries
+
+we can use this dobous solution:
+1. create one <torusGeometry> outside of the donut
+2. Store it by using useState
+3. Put it back in the <mesh> of the donuts from the state 
+
+in the 'Sahders of the performance monitoring, there is only one Shader because Three.js automatically re-uses Shaders when possible
+
+or the better solution is to create the material before the Experience 
+
+when using this solution the textures looks bright because R3F automatically changed the encoding of the matcaoTexture when we used it in the <meshMatcapMaterial> and we need to do it matnaullt
+

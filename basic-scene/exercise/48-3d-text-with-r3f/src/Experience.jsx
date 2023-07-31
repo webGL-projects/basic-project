@@ -1,9 +1,26 @@
 import { OrbitControls, Text3D, Center, useMatcapTexture } from "@react-three/drei";
 import { Perf } from "r3f-perf";
+import { useState, useEffect } from "react";
+import * as THREE from 'three'
+
+const torusGeometry = new THREE.TorusGeometry(1, 0.4, 16, 32)
+const material = new THREE.MeshMatcapMaterial()
 
 export default function Experience() {
 
     const [ matcapTexture ] = useMatcapTexture('7B5254_E9DCC7_B19986_C8AC91', 256)
+
+    useEffect(() => {
+        matcapTexture.colorSpace = THREE.SRGBColorSpace
+        matcapTexture.needsUpdate = true
+
+        material.matcap = matcapTexture
+        material.needsUpdate = true
+    }, [])
+
+    // const [ torusGeometry, setTourusGeometry ] = useState()
+    // const [ material, setMaterial ] = useState()
+
 
   return (
     <>
@@ -11,9 +28,13 @@ export default function Experience() {
 
       <OrbitControls makeDefault />
 
+      {/* <torusGeometry ref={ setTourusGeometry } /> 
+      <meshMatcapMaterial ref={ setMaterial } matcap={ matcapTexture } args={ [ 1, 0.6, 16, 32 ] } />  */}
+
       <Center>
         <Text3D 
         font="./fonts/helvetiker_regular.typeface.json"
+        material={ material }
         size={ 0.75 }
         height={ 0.2 }
         curveSegments={ 12 }
@@ -23,15 +44,15 @@ export default function Experience() {
         bavelOffset={ 0 }
         bavelSegments={ 5 }
         >
-          Hello R3F
-          <meshMatcapMaterial matcap={matcapTexture} />
-          
+          Hello R3F          
         </Text3D>
       </Center>
 
       { [...Array(100) ].map( (value, index) => 
             <mesh
             key={ index }
+            geometry={ torusGeometry }
+            material={ material }
             position={ [
                 ( Math.random() - 0.5 ) * 10,
                 ( Math.random() - 0.5 ) * 10,
@@ -44,8 +65,6 @@ export default function Experience() {
                 0
             ] }
             >
-            <torusGeometry /> 
-            <meshMatcapMaterial matcap={ matcapTexture } args={ [ 1, 0.6, 16, 32 ] } /> 
           </mesh>
       ) }
 
