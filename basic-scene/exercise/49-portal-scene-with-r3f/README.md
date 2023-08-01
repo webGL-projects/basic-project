@@ -33,7 +33,31 @@ the colors look brighter because R3F sets a toneMapping, it is good but not in o
 
 to solve that we set flat on the <Canvas> it will set the toneMapping to THREE.NoToneMapping 
 
+https://threejs.org/docs/?q=color#api/en/math/Color
+
 ## Fireflies
  we want to add the fireflies represented by glowing particals what float around
 
  Sparkles drei helper is used to create them 
+
+ ## Portal 
+ we need to add the custom shader material we had on the portal
+
+ https://threejs.org/docs/?q=shadermateri#api/en/materials/ShaderMaterial
+
+ Basic Shader, Three.js provides default vertex and fragment shader 
+
+ vite-plugin-glsl plugin is used to import .glsl files
+
+ we need to send the uniforms needed in the fragment shader 
+
+ ther are 3 uniforms that we need to send:
+ 1. uTime: number
+ 2. uColorStart: Three.js Color
+ 3. uColorEnd: Three.js Color
+
+ the shaderMaterial helper: it creates a ShderMaterial that will then make available in the JSX, it simplifies the process of creating and updating uniforms
+
+to convert it to R3F tag that we can use in the JSX, we are going to use extend like we did when we implemented the OrbitControls
+
+we can use the uTime to animate the portal
