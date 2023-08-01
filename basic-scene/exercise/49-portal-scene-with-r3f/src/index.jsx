@@ -7,6 +7,7 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
     <Canvas
+        flat // this is used to remove the tone mapping from R3F 
         camera={ {
             fov: 45,
             near: 0.1,
