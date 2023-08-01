@@ -1,4 +1,5 @@
-import { OrbitControls, useGLTF, useTexture, Center } from "@react-three/drei";
+import { OrbitControls, useGLTF, useTexture, Center, Sparkles } from "@react-three/drei";
+import { Perf } from "r3f-perf"
 
 export default function Experience() {
   const { nodes } = useGLTF("./model/portal.glb");
@@ -11,6 +12,8 @@ export default function Experience() {
     <>
       <color args={["#030202"]} attach="background" />
 
+      <Perf position='top-left' /> 
+
       <OrbitControls makeDefault />
 
       <Center>
@@ -20,7 +23,7 @@ export default function Experience() {
 
         {/* PoleLights */}
         <mesh
-          geometry={nodes.poleLightA.geometry}
+          geometry={nodes.poleLightA.geometry} 
           position={nodes.poleLightA.position}
         >
         <meshBasicMaterial color='#ffffe5' />
@@ -40,6 +43,14 @@ export default function Experience() {
           >
             <meshBasicMaterial color='#ffffff' /> 
           </mesh>
+
+          <Sparkles 
+          size={ 6 }
+          scale={ [ 4, 2, 4 ] }
+          position-y={ 1 }
+          speed={ 0.2 }
+          count={ 40 }
+          /> 
       </Center>
     </>
   );

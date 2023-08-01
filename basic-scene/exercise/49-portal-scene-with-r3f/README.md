@@ -32,3 +32,8 @@ Pole Lights
 the colors look brighter because R3F sets a toneMapping, it is good but not in our case, because we baked the it from blender, and blender already applies tone mapping with its color managment system
 
 to solve that we set flat on the <Canvas> it will set the toneMapping to THREE.NoToneMapping 
+
+## Fireflies
+ we want to add the fireflies represented by glowing particals what float around
+
+ Sparkles drei helper is used to create them 
