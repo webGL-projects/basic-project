@@ -39,6 +39,7 @@ export default function Experience() {
 
       <mesh position-x={-2}
       onClick={(event) => event.stopPropagation()}
+      onPointerEnter={(event) => event.stopPropagation()}
       >
         <sphereGeometry />
         <meshStandardMaterial color="orange" />
@@ -59,6 +60,9 @@ export default function Experience() {
     // onPointerLeave={eventHandler}
     // onPointerMove={eventHandler}
     // onPointerMissed={eventHandler}
+
+    onPointerEnter={() => document.body.style.cursor = 'pointer' }
+    onPointerLeave={() => document.body.style.cursor = 'default' }
       >
         <boxGeometry />
         <meshStandardMaterial color="mediumpurple" />

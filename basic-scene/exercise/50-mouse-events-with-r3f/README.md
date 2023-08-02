@@ -70,6 +70,15 @@ so when to use them, let's take an RTS game as an example (Age of Empire or star
  ## Occluding
   by default the raycaster doesn't care about what's in front of the object beign tested 
 
+  https://threejs.org/docs/?q=raycas#api/en/core/Raycaster
+
   there is a way to 'occlude' the cube, we are going to listen to the onClick event on the sphere too and tell it to stop propagating the event 
 
   when we click, Three.js and R3F will order all objects which intersect by distance to the camera (from the closest to the furthest) if one of the intersecting objects asks to stop the propgation, the next objects won't trigger the event 
+
+  ## Cursor
+  to help the use know if the object is clickable, we need to transform the cursor to a pointer 
+
+  so we need to know when the mouse enters and leaves the cube 
+
+  but there is a helper called useCursor, which do almost the same as we did here
