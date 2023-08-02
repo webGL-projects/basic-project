@@ -49,3 +49,16 @@ it will add parasitesto the screen, we need to use BlendFunction types:
  4. BelendFunction.AVERAGE
 
  premultiply will multiply the noise with the input color before applying the blending, it usually results in a darker render but it blends better with the image
+
+ ## Bloom Effect
+ it will make our objects glow
+
+ the defau;t configuration of bloom make objects glow only when their color channels go beyond the 0.9 threshold
+
+ we must fix a limitation, tone mapping id applied by default and it'll clamp the colors between 0 and 1
+
+ we can deactivate it on specific materials ising the tone mapping attribute
+
+ the mipmap blur will use the same mipmapping used for textures, smaller resolutions of the render will be combined into a bloom texture that is then added to the initial render
+
+ if you want a uniform emissive, you can switch to a <meshBasixMAterial> but you won't be able to use the emissive and emissiveIntensity and you'll have to set the color attribute with channel values that go above 1

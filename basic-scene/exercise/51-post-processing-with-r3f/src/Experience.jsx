@@ -1,10 +1,10 @@
 import { OrbitControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { EffectComposer, Vignette, Glitch, Noise } from '@react-three/postprocessing'
+import { EffectComposer, Vignette, Glitch, Noise, Bloom } from '@react-three/postprocessing'
 import { useControls } from 'leva'
 import { BlendFunction, GlitchMode } from 'postprocessing'
-console.log(BlendFunction)
-console.log(GlitchMode)
+// console.log(BlendFunction)
+// console.log(GlitchMode)
 
 export default function Experience()
 {
@@ -28,10 +28,16 @@ export default function Experience()
             strength={ [ 0.2, 0.4 ] }
             mode={ GlitchMode.CONSTANT_MILD }
             />  */}
-
+{/* 
             <Noise 
             premultiply
             blendFunction={ BlendFunction.SOFT_LIGHT}
+            /> */}
+
+            <Bloom 
+            mipmapBlur
+            intensity={ 0.5 }
+            // luminanceThreshold={ 0 }
             />
 
 
@@ -51,7 +57,15 @@ export default function Experience()
 
         <mesh castShadow position-x={ 2 } scale={ 1.5 }>
             <boxGeometry />
-            <meshStandardMaterial color="mediumpurple" />
+            {/* <meshStandardMaterial 
+            // color={ [ 4, 1, 2 ]  } 
+            color='#ffffff'
+            emissive='orange'
+            emissiveIntensity={ 2 }
+            toneMapped = { false } 
+            /> */}
+            {/* <meshBasicMaterial color={ [ 1.5, 1, 4 ] } toneMapped={ false } /> */}
+            <meshStandardMaterial color='mediumpurple' /> 
         </mesh>
 
         <mesh receiveShadow position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
