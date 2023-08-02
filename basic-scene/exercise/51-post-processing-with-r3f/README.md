@@ -35,3 +35,8 @@ Blending: blendFunction is an attribute available for all effects works like ble
 to change the blending we need to get the type of blending
 
 debugUI is preferable to find the best blending
+
+## Glitch Effect
+it will glitch the screen randomly
+
+it is a good idea to add a warning, because some people are sensitive 
