@@ -62,3 +62,11 @@ it will add parasitesto the screen, we need to use BlendFunction types:
  the mipmap blur will use the same mipmapping used for textures, smaller resolutions of the render will be combined into a bloom texture that is then added to the initial render
 
  if you want a uniform emissive, you can switch to a <meshBasixMAterial> but you won't be able to use the emissive and emissiveIntensity and you'll have to set the color attribute with channel values that go above 1
+
+ ## Depth of Feild Effect
+ the 3 main attributes of DOP:
+  1. fucusDistance: at which distance the image should be sharp 
+  2. focalLenght: the distance to travel from the focusDistance before reaching the maximum blur 
+  3. bokehScale: the blur redius
+
+  the values are in normalized space (0-1) according to the camera near and far, it is not an absolute distance

@@ -1,6 +1,6 @@
 import { OrbitControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { EffectComposer, Vignette, Glitch, Noise, Bloom } from '@react-three/postprocessing'
+import { EffectComposer, Vignette, Glitch, Noise, Bloom, DepthOfField } from '@react-three/postprocessing'
 import { useControls } from 'leva'
 import { BlendFunction, GlitchMode } from 'postprocessing'
 // console.log(BlendFunction)
@@ -34,10 +34,16 @@ export default function Experience()
             blendFunction={ BlendFunction.SOFT_LIGHT}
             /> */}
 
-            <Bloom 
+            {/* <Bloom 
             mipmapBlur
             intensity={ 0.5 }
             // luminanceThreshold={ 0 }
+            /> */}
+
+            <DepthOfField 
+            focusDistance={ 0.025 }
+            focalLength={ 0.025 }
+            bokehScale={ 6 }
             />
 
 
