@@ -15,3 +15,15 @@ https://docs.pmnd.rs/react-postprocessing/introduction
 https://docs.pmnd.rs/react-postprocessing/effects/bloom
 https://docs.pmnd.rs/react-postprocessing/effects/custom-effects
 
+## Implement 
+two dependencies are requied 
+ * @react-three/postprocessing
+ * postprocessing 
+
+ You might notice that all materials are changing when adding <EffectComposer>.
+
+It’s a bug in the latest versions of @react-three/postprocessing due to EffectComposer rendering the scene with MeshNormalMaterial for later use in the effects.
+
+It’ll automatically disappear once you add effects and you can ignore it.
+
+Multisampling: is used to prevent the aliasing effect by default, the value at 8 and we can lower it down to 0 in order to disable it completely with the multisampling attribute
