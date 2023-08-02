@@ -66,3 +66,10 @@ so when to use them, let's take an RTS game as an example (Age of Empire or star
  * when the user drags and drops you want to draw a rectangle and when it releases you want to select all units inside the rectangle
  * when the user clicks again but the shift key you want to add to the currently selected units or remove them if they were already selected
  * when the user clicks but there is no hit you want to deselect every unit
+
+ ## Occluding
+  by default the raycaster doesn't care about what's in front of the object beign tested 
+
+  there is a way to 'occlude' the cube, we are going to listen to the onClick event on the sphere too and tell it to stop propagating the event 
+
+  when we click, Three.js and R3F will order all objects which intersect by distance to the camera (from the closest to the furthest) if one of the intersecting objects asks to stop the propgation, the next objects won't trigger the event 

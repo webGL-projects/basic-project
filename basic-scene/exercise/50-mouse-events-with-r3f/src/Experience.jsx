@@ -36,15 +36,19 @@ export default function Experience() {
       <OrbitControls makeDefault />
       <directionalLight position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
-      <mesh position-x={-2}>
+
+      <mesh position-x={-2}
+      onClick={(event) => event.stopPropagation()}
+      >
         <sphereGeometry />
         <meshStandardMaterial color="orange" />
       </mesh>
+
       <mesh 
       ref={cube} 
       position-x={2} 
       scale={1.5} 
-    //   onClick={eventHandler}
+      onClick={eventHandler}
     //   onContextMenu={eventHandler}
     // onDoubleClick={eventHandler}
     // onPointerUp={eventHandler}
@@ -54,8 +58,7 @@ export default function Experience() {
     // onPointerOut={eventHandler}
     // onPointerLeave={eventHandler}
     // onPointerMove={eventHandler}
-    onPointerMissed={eventHandler}
-
+    // onPointerMissed={eventHandler}
       >
         <boxGeometry />
         <meshStandardMaterial color="mediumpurple" />
