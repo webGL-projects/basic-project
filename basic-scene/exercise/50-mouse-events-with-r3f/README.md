@@ -30,3 +30,39 @@ console.log('ctrlKey', event.ctrlKey) // If the CTRL key was pressed
 console.log('metaKey', event.metaKey) // If the COMMAND key was pressed
 
 the click event is more complex that it looks, a click implies that the pointer went down onto the object and then up agian while remaining on the object if it started outside or ended outside the event doesn't count as a click
+
+## Other Events
+there are more than the onClick event handeler
+
+1. onContextMenu: it is for
+ * when the contex menu should appear
+ * on a destop, with a RIGHT CLICK or CTRL + LEFT CLICK 
+ * on a mobile by pressing down for some time
+
+2. onDoubleClick: 
+ * when we double click/tap on the same object
+ * the delay between the first and second click/tap is defined by the OS
+
+3. onPointerUp:
+ * when we release the click (left or right) or touch
+
+4. onPointerDown:
+ * whaen we've just clicked or put out finger down
+
+5. onPointerOver and onPointerEnter: 
+ * when the cursor or finger just went above the object
+
+6. onPointerOut and onPointerLeave:
+ * when the cursor or finger just went out from the object
+
+7. onPointerMove: 
+ * on each frame if the cursor has moved since the last frame, while above the object
+
+8. onPointerMissed:
+* When there's no longer any activity in the scene after having received PointerEvents the user clicks outside of the object, we can add it to the canvas
+
+so when to use them, let's take an RTS game as an example (Age of Empire or starCraft)
+ * when the player clicks on a unit, you want to select it
+ * when the user drags and drops you want to draw a rectangle and when it releases you want to select all units inside the rectangle
+ * when the user clicks again but the shift key you want to add to the currently selected units or remove them if they were already selected
+ * when the user clicks but there is no hit you want to deselect every unit

@@ -26,7 +26,7 @@ export default function Experience() {
     console.log("shiftKey", event.shiftKey); // If the SHIFT key was pressed
     console.log("ctrlKey", event.ctrlKey); // If the CTRL key was pressed
     console.log("metaKey", event.metaKey); // If the COMMAND key was pressed
-    
+
     cube.current.material.color.set(`hsl(${Math.random() * 360}, 100%, 75%)`);
   };
 
@@ -40,7 +40,23 @@ export default function Experience() {
         <sphereGeometry />
         <meshStandardMaterial color="orange" />
       </mesh>
-      <mesh ref={cube} position-x={2} scale={1.5} onClick={eventHandler}>
+      <mesh 
+      ref={cube} 
+      position-x={2} 
+      scale={1.5} 
+    //   onClick={eventHandler}
+    //   onContextMenu={eventHandler}
+    // onDoubleClick={eventHandler}
+    // onPointerUp={eventHandler}
+    // onPointerDown={eventHandler}
+    // onPointerOver={eventHandler}
+    // onPointerEnter={eventHandler}
+    // onPointerOut={eventHandler}
+    // onPointerLeave={eventHandler}
+    // onPointerMove={eventHandler}
+    onPointerMissed={eventHandler}
+
+      >
         <boxGeometry />
         <meshStandardMaterial color="mediumpurple" />
       </mesh>
