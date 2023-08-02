@@ -82,3 +82,8 @@ so when to use them, let's take an RTS game as an example (Age of Empire or star
   so we need to know when the mouse enters and leaves the cube 
 
   but there is a helper called useCursor, which do almost the same as we did here
+
+  ## Events onComplex Objects
+since <primitive> is a simple placeholder of the actual object, we can listen to events on it as if it were any other object
+
+the eventlistner is called multiple times because the ray is going through multiple objects at once, even though we listen to the event on the parent, R3f will test the meshes inside 
