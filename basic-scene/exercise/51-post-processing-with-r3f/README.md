@@ -75,3 +75,43 @@ it will add parasitesto the screen, we need to use BlendFunction types:
   it will add reflection to the scene ar a decent frame rate
 
   it will calculate what should be reflected on the surface according to its position, its otintation and its material properties, althogh not perfect, it's very realistic
+
+  ## Custom Effects
+  we need to create the effect for post processing and then make it available in R3F 
+
+  because post processing is merging the effects into one shader, we need to follow very specific rules
+
+  https://github.com/pmndrs/postprocessing/wiki/Custom-Effects
+  https://docs.pmnd.rs/react-postprocessing/effects/custom-effects
+
+  our custom Effect must be a class, extended to Effect, the shader can be implemented in a function that must be named mainImage return void and with very specific parameters
+
+  we are using the webGL 2 syntax where we can specify more information associated with each parameters
+    * const the parameter is not writable
+    * in it's a copy of the actual variable and changing it won't affect the initial variable sent when calling the function
+    * out changing this value will change the variable sent when calling the function
+
+    this prevents us from making mistakes but also gives us a hint about what variables we need to change
+     * inputColor contains the current color for that pixel which is defined by the previous effects
+     * uv contains the render coordinates
+     * outputColor what we need to change in order to apply the effect
+
+     in the class constructor we need to call the super(), it is like calling constructore of that parent class
+
+     in the super we need: 
+      1. name of the effect
+      2. the fragment shader that we wrote ealier
+      3. some options in an object that will keep empty for now
+
+props used to control the effect
+
+refernce to help the developers maniplulate it easily, function component can't have red so we use forwardRef
+
+to create the wigle effect we use the uv parameters
+
+a Map is a mix between an object and an array with helpful methods and properties
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+
+
+blending the coloe 
