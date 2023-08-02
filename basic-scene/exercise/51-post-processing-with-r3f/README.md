@@ -70,3 +70,8 @@ it will add parasitesto the screen, we need to use BlendFunction types:
   3. bokehScale: the blur redius
 
   the values are in normalized space (0-1) according to the camera near and far, it is not an absolute distance
+
+  ## Screen Space Reflection (SSR) Effect
+  it will add reflection to the scene ar a decent frame rate
+
+  it will calculate what should be reflected on the surface according to its position, its otintation and its material properties, althogh not perfect, it's very realistic
