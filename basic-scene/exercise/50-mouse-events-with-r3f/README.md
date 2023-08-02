@@ -87,3 +87,20 @@ so when to use them, let's take an RTS game as an example (Age of Empire or star
 since <primitive> is a simple placeholder of the actual object, we can listen to events on it as if it were any other object
 
 the eventlistner is called multiple times because the ray is going through multiple objects at once, even though we listen to the event on the parent, R3f will test the meshes inside 
+
+## Performance 
+listening to pointer events is quite taxing task for the CPU keep an eye on performance (especially on low-end devices) and opimise as you can 
+
+there are general optimisation to do:
+ 1. avoid events that need to be tested on each frame like: 
+  * onPointerOver
+  * onPointerEnter
+  * onPointerOut
+  * onPointerLeave
+  * onPointerMove
+
+2. Minimise the number of objects that listen to events and avoid testing complex geometries, if you notice a freeze, even a short one when interacting, you'll need to have some more optimisation to do
+
+3. meshNounds helper: it will create a theoretical sphere around the mesh (called bounding sphere) and the pointer event will be tested on that sphere insteead of testing the geometry of the mesh, it only works on a single meshes which is why we can't use it on the hamburger since it's composed of multiple meshes 
+
+4. BVH: if you have complex geometries and still need the pointer events to be accrate, you can also use the BVH (Bounding Volume Hierarchy), it has the useBVH helper
