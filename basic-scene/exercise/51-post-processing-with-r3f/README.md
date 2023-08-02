@@ -40,3 +40,12 @@ debugUI is preferable to find the best blending
 it will glitch the screen randomly
 
 it is a good idea to add a warning, because some people are sensitive 
+
+## Noise Effect
+it will add parasitesto the screen, we need to use BlendFunction types:
+ 1. BelendFunction.OVERLAY
+ 2. BelendFunction.SCREEN
+ 3. BelendFunction.SOFT_LIGHT
+ 4. BelendFunction.AVERAGE
+
+ premultiply will multiply the noise with the input color before applying the blending, it usually results in a darker render but it blends better with the image
