@@ -1,13 +1,24 @@
 import { OrbitControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { EffectComposer } from '@react-three/postprocessing'
+import { EffectComposer, Vignette } from '@react-three/postprocessing'
+import { useControls } from 'leva'
+import { BlendFunction } from 'postprocessing'
+console.log(BlendFunction)
 
 export default function Experience()
 {
+        
     return <>
 
-        <EffectComposer multisampling={ 0 }>
+        {/* to solve the vignette issue */}
+        <color args={ [ '#ffffff' ] } attach={'background'} /> 
 
+        <EffectComposer >
+            <Vignette 
+            offset={ 0.3 }
+            darkness={ 0.9 }
+            blendFunction={ BlendFunction.NORMAL } 
+            /> 
         </EffectComposer>
 
         <Perf position="top-left" />

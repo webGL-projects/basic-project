@@ -3,11 +3,6 @@ in previous lessons, we used post-processing by adding passes each pass had its 
 
 the solution postprocessing, the various passes will be merged into the least number of passes possible, we ralk about 'effects' 
 
-https://github.com/pmndrs/postprocessing
-https://pmndrs.github.io/postprocessing/public/docs/
-https://pmndrs.github.io/postprocessing/public/demo/#antialiasing
-https://github.com/pmndrs/postprocessing/wiki/Custom-Effects
-
 the effects will be merged togeather into one multiple passes (if needed) automatically while keeping the other in which we added them and we can even choose the blending of each effect
 
 https://github.com/pmndrs/react-postprocessing
@@ -27,3 +22,16 @@ It’s a bug in the latest versions of @react-three/postprocessing due to Effect
 It’ll automatically disappear once you add effects and you can ignore it.
 
 Multisampling: is used to prevent the aliasing effect by default, the value at 8 and we can lower it down to 0 in order to disable it completely with the multisampling attribute
+
+## Finding Effects and how to implement them 
+
+https://github.com/pmndrs/postprocessing
+https://pmndrs.github.io/postprocessing/public/docs/
+https://pmndrs.github.io/postprocessing/public/demo/#antialiasing
+https://github.com/pmndrs/postprocessing/wiki/Custom-Effects
+
+Blending: blendFunction is an attribute available for all effects works like blending in image editing softwares and it's how the color of what we are drawing merges with what's behind, the default blending is normal and it simply draws the effect on top of the previous one 
+
+to change the blending we need to get the type of blending
+
+debugUI is preferable to find the best blending
