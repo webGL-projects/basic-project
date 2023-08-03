@@ -26,3 +26,20 @@ we need to center the screen not the laptop
 we can use the Float Helper
 
 we want to display HTML/CSS website on the laptop screen, so we want the laptop to move a slowly
+
+## CAmera and Controls
+instead of tweaking the properties of OrbitControls we are going to use a drei helper named PresentationControls
+
+PresentationControls lets you maniplulate the model instaed of the camera, we can rotate that model, and when we release it, it goes back to its initial position, internally it uses Spring a PMNDRS library that makes the animation realistic and pleasent 
+
+by default we can only rotate the object by dragging and dropping right on the model, we want to be able to drag and drop from anywhere, even the background
+
+it also uses use-gesture a library to interact with elements using natural gestures, this library recommends adding the CSS property touch-action to none in order to fix the weird behavior on mobile when swiping
+
+https://use-gesture.netlify.app/
+https://use-gesture.netlify.app/docs/extras/#touch-action
+ 
+Spring is used for the animation and we can play with the properties of that spring  
+
+https://react-spring.dev/
+https://react-spring.dev/docs/advanced/config#configs
