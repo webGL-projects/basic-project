@@ -46,3 +46,14 @@ https://react-spring.dev/docs/advanced/config#configs
 
 ## Shadows
 we can use the cintactShadows helper
+
+## iframe
+used to add HTML website to the screen of the laptop
+
+https://react-spring.dev/docs/advanced/config#configs
+
+we will add a <iframe>  to the experience, it is like a window that leads to another website, it makes it possible to have websites visible on other websites (website-ception)
+
+if we want the iframe to follow the model to be part of the webGL, Html helper must be used
+
+the iframe needs to be transformed and sized properly 
