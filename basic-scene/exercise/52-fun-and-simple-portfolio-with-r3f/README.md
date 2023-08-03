@@ -19,3 +19,10 @@ to implement the model we have multiple options:
 
 ## Lights and Environment
 we use the Environment helper
+
+## Floationg Animation
+we need to center the screen not the laptop 
+
+we can use the Float Helper
+
+we want to display HTML/CSS website on the laptop screen, so we want the laptop to move a slowly
