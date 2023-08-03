@@ -1,4 +1,4 @@
-import { OrbitControls, useGLTF, Environment, Float, PresentationControls } from "@react-three/drei";
+import { OrbitControls, useGLTF, Environment, Float, PresentationControls, ContactShadows } from "@react-three/drei";
 
 export default function Experience() {
   const computer = useGLTF(
@@ -26,6 +26,12 @@ export default function Experience() {
         <primitive object={computer.scene} position-y={-1.2} />
       </Float>
         </PresentationControls> 
+        <ContactShadows 
+        position-y={ -1.4 } 
+        opacity={ 0.4 }
+        scale={ 5 }
+        blur={ 2.4 }
+        />
 
     </>
   );

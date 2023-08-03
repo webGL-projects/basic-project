@@ -43,3 +43,6 @@ Spring is used for the animation and we can play with the properties of that spr
 
 https://react-spring.dev/
 https://react-spring.dev/docs/advanced/config#configs
+
+## Shadows
+we can use the cintactShadows helper
