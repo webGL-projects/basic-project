@@ -1,4 +1,4 @@
-import { OrbitControls, useGLTF } from '@react-three/drei'
+import { OrbitControls, useGLTF, Environment } from '@react-three/drei'
 
 export default function Experience()
 {
@@ -10,12 +10,9 @@ export default function Experience()
 
         <color args={ ['#241a1a']} attach='background' /> 
 
+        <Environment preset='city' /> 
+
         <OrbitControls makeDefault />
-        
-        <mesh>
-            <boxGeometry />
-            <meshNormalMaterial />
-        </mesh>
 
         <primitive object={ computer.scene } /> 
     </>

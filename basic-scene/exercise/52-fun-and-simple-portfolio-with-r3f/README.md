@@ -17,3 +17,5 @@ to implement the model we have multiple options:
  3. Download the various R3F version
  4. Download the native Three.js version
 
+## Lights and Environment
+we use the Environment helper
