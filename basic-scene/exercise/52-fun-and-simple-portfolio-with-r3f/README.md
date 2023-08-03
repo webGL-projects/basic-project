@@ -57,3 +57,6 @@ we will add a <iframe>  to the experience, it is like a window that leads to ano
 if we want the iframe to follow the model to be part of the webGL, Html helper must be used
 
 the iframe needs to be transformed and sized properly 
+
+## Screen Light
+we will add some realism by adding an orange RectAreaLight at the screen position so that we can see the light reflected on the laptop keyboard
