@@ -27,7 +27,7 @@ we can use the Float Helper
 
 we want to display HTML/CSS website on the laptop screen, so we want the laptop to move a slowly
 
-## CAmera and Controls
+## Cmera and Controls
 instead of tweaking the properties of OrbitControls we are going to use a drei helper named PresentationControls
 
 PresentationControls lets you maniplulate the model instaed of the camera, we can rotate that model, and when we release it, it goes back to its initial position, internally it uses Spring a PMNDRS library that makes the animation realistic and pleasent 
@@ -58,5 +58,17 @@ if we want the iframe to follow the model to be part of the webGL, Html helper m
 
 the iframe needs to be transformed and sized properly 
 
+the iframe is on top of the canvas
+
+
 ## Screen Light
 we will add some realism by adding an orange RectAreaLight at the screen position so that we can see the light reflected on the laptop keyboard
+
+## Text
+we need to show case the websites goal 
+
+https://fonts.google.com/specimen/Bangers
+https://gwfh.mranftl.com/fonts
+
+
+https://gwfh.mranftl.com/fonts
