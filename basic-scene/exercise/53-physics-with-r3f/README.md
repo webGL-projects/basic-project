@@ -1,3 +1,25 @@
 # Physics with R3F 
 
-No Progress made on Aug 5th 2023
+## From Cannon to Rapier
+Cannon is a great Physics library, but the original code hasn't been updated in many years, cannon-es is what works with R3F and it is very valiable solution 
+
+https://github.com/pmndrs/cannon-es
+https://github.com/pmndrs/use-cannon
+https://www.npmjs.com/package/@react-three/cannon
+
+## Rapier
+it was created in 2019 and its written in Rust, with webAssembly used for it to work with JS
+
+https://rapier.rs/
+https://www.rust-lang.or
+https://rapier.rs/javascript3d/index.html
+
+WebAssembly: enables running languages like C/C++, C# and Rust on a webpage with almost native Performance, it is determinism, runnu=ing the same Conditions will result in the same animation even on multiple devices (by default)
+
+https://rapier.rs/docs/user_guides/javascript/getting_started_js/
+https://dimforge.com/
+https://twitter.com/dimforge
+https://rapier.rs/demos2d/index.html
+https://rapier.rs/demos3d/index.html
+
+Rapier isn't bound to Three.js and we can use it with any other library
