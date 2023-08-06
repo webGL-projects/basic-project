@@ -42,3 +42,17 @@ we need to specify which objects are going to be affected by wrapping them in a 
 
 <RigidBody> can only be added inside the <Physics> element
 
+https://rapier.rs/javascript3d/classes/RigidBody.html
+
+## Under the hood 
+* we don't have to update the physics in each frame
+* Three.js object are automatically associated with the crosspending RigidBody surronding them
+* React Three Rapier creates a physics shape matching the Three.js objects
+* We don't have to specify surface properties, object mass, gravity, etc. 
+
+ ## Debugging 
+ we need to add a debug mode, to see what really happens in the physics world
+
+ it is usually for development only 
+
+ those wireframes can have an impact on peerformance

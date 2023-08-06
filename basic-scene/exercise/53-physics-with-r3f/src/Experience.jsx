@@ -12,7 +12,8 @@ export default function Experience() {
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
 
-      <Physics>
+      <Physics debug>
+
         <RigidBody>
           <mesh castShadow position={[-2, 2, 0]}>
             <sphereGeometry />
@@ -33,6 +34,7 @@ export default function Experience() {
             <meshStandardMaterial color="greenyellow" />
           </mesh>
         </RigidBody>
+        
       </Physics>
     </>
   );
