@@ -33,4 +33,12 @@ https://docs.pmnd.rs/react-three-fiber/getting-started/examples
 
 it is already implemented as React Three Rapier 
 
-there is Rapier (without Three.js nor R3F)
+there is Rapier (without Three.js nor R3F) 
+
+## <Physics>
+it wraps arounfd the mesh, even light ( even though it does nothing)
+
+we need to specify which objects are going to be affected by wrapping them in a <RigidBody>
+
+<RigidBody> can only be added inside the <Physics> element
+
