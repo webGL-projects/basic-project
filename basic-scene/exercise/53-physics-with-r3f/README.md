@@ -23,3 +23,14 @@ https://rapier.rs/demos2d/index.html
 https://rapier.rs/demos3d/index.html
 
 Rapier isn't bound to Three.js and we can use it with any other library
+
+## React Three Rapier
+https://github.com/pmndrs/react-three-rapier
+https://github.com/wiledal
+https://twitter.com/etthugo
+https://github.com/pmndrs/react-three-rapier#readme
+https://docs.pmnd.rs/react-three-fiber/getting-started/examples
+
+it is already implemented as React Three Rapier 
+
+there is Rapier (without Three.js nor R3F)
