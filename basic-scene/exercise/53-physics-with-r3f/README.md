@@ -104,4 +104,22 @@ refernce and impluse:
 for rotation we use torque
 * addTorque (equivalent of addForce)
 * appluTorqueImpluse (equivelant of appluImpulse) 
+
+## Object Setting
+we can control many things like:
+ 1. Gravity: it is set to -9.08 by default 
+ 2. Resititution (default 0): it controls the bounciness, the floor doesn't have resititution of 1 it's like dropping a bouncing ball on a flat and solid surface aginst dropping the same bouncing ball on a carpet, by default Rapier will take an average of the two restitution it is possible to change that rule, but it has to be done within the collider itself an dnot the RigidBody, we need to access the automatically generated collider or create the collider manually, we would also need to import CoefficientCombineRule from Rapier and choose one of the rules provided in that object
+ 3. friction (0.7): how much the surfaces rup off each other, by defaqult Rapeir will take advantage of the 2 frictions involved like for the restitution
+ 4. Mass: the mass of the RigidBody is automatically calculated as the sum of the masses of the colliders that make up the RigidBody, the mass of the colliders is automatically calculated according to their shape and volume, the mass won't change how fast an object falls, but it effects the forces involved, we need create the colliders
+ 5. Position and Rotation: for dynamic and fixed objects you should not change those values at run time, their purpose is only to set the original position and rotation befaore letting Rapier update the objects to change them we can:
+  a. if we need to move it once e can do it with the appropriate methods , but you'll have to reset velociets that are currently applied on it and also make sure to not move it inside another RigidBody
+  b. if you need to move it in time (like a carousel or a moving obstacle) you can use the kinematic types
+   * kinematicPosition we provide the next position and it'll update the onject velocity accordingly 
+   * kinematicVelocity we provide the velocity directly
+the kinematic object has two important functions:
+ * setNextKinematicTranslation to move the object 
+ * setNextKinematicRotation to rotate the object is expecting a Quaterion and not a Euler, Quaterion are harder to express and we can't just write one directly we are going:
+  1. Create a Three.js Euler
+  2. Create a Three.js Quaternion
+  3. Send that Quaterion to setNextKinematicRotation 
  
