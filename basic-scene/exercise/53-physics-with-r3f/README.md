@@ -94,4 +94,14 @@ https://rapier.rs/javascript3d/classes/RigidBody.html
 
  the way <RigidBody> amd <mesh> work regarding position and rotation is very similar, scale is not supported
 
+## Access the body and apply forces
+sometimes we want to call a specific instruction on the bodies
+
+refernce and impluse:
+* addForce is used to apply a force that lasts for quite a long time (like the wind)
+* applyImpulse is used to apply a short force for a very short period of time (like a projectile), it needs vector3 as a parameter ( the direction of the impulse) its length will be used as the strength 
+
+for rotation we use torque
+* addTorque (equivalent of addForce)
+* appluTorqueImpluse (equivelant of appluImpulse) 
  
