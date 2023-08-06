@@ -1,10 +1,11 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import {
   Physics,
   RigidBody,
   CuboidCollider,
   BallCollider,
+  CylinderCollider
 } from "@react-three/rapier";
 import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
@@ -49,6 +50,8 @@ export default function Experience() {
     // hitSound.play();
   }
 
+
+  const hamburger = useGLTF('./hamburger.glb')
 
   return (
     <>
@@ -104,6 +107,12 @@ export default function Experience() {
                 <meshStandardMaterial color='red' /> 
             </mesh>
         </RigidBody>
+
+        <RigidBody position={[ 0, 4, 0]} colliders={false}>
+        <primitive object={ hamburger.scene } scale={0.25} /> 
+            <CylinderCollider args={[0.5, 1.25]}/>
+        </RigidBody>
+
       </Physics>
     </>
   );

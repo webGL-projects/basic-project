@@ -131,4 +131,6 @@ the kinematic object has two important functions:
   4. onWake: when the RigidBody stops sleeping
 
 sounds: we need to istantiate the audio, we are going to use useState in order to istantiate the audio onlyy once in case the componenet is beign re-rendered
- 
+
+## From a Model
+each part has it's own collider, so we use custome ones
