@@ -134,3 +134,18 @@ sounds: we need to istantiate the audio, we are going to use useState in order t
 
 ## From a Model
 each part has it's own collider, so we use custome ones
+
+## Stress test
+<instanceMesh> needs:
+ 1. the geometry 
+ 2. the material
+ 3. the number of instances
+
+ Matrix 4 is a combination of position, rotation and scale, they are used to move the verticies according to the object transormation 
+
+ https://threejs.org/docs/?q=matrix#api/en/math/Matrix4
+
+ fill the instance array with:
+ 1. key a random key used by react
+ 2. position an array composed of 3 values for a Vector3 position
+ 3. rotation: an array composed of 3 values for an euler rotation 
