@@ -56,3 +56,42 @@ https://rapier.rs/javascript3d/classes/RigidBody.html
  it is usually for development only 
 
  those wireframes can have an impact on peerformance
+
+ ## Colliders
+ https://rapier.rs/docs/user_guides/bevy_plugin/colliders/#overview
+
+ Colliders are the shapes that make up our RigidBodies
+
+ in the case of the sphere, the collider seems to be a box, the actual word used by reier for this shape is 'Cuboid'
+
+ https://rapier.rs/docs/user_guides/bevy_plugin/colliders/#overview
+
+ Automatic colliders it automatically fit the object, the colliders don't need to be physically linked togeather to work as one complex body, adding weight away from the body causes the object to fall 
+
+ Ball Collider
+ https://rapier.rs/javascript3d/classes/Ball.html
+
+ sometimesit is ok to have a collider that doesn't match the model, you can choose the collider in the <RigidBody> with the colliders attribute, the default one is cuboid but we can set it to ball
+
+ Hull Collider (Convex hull): it is like adding an elastic membrance arounfd the object
+ 
+
+ Trimesh Collider (triangle mesh): it is not useable with dynamic RigidBodies, because the colliders generated with a trimesh are empty on the inside and it makes collision detection more complicated and prone to bugs, a fast object might go through the trimesh or end up stuck on its surface
+
+ https://rapier.rs/javascript3d/classes/TriMesh.html
+
+ Custom Collider: we need to stop the automatic collider, we can use the react Rapier documentation as a refernce
+
+ https://rapier.rs/javascript3d/classes/Ball.html
+ https://rapier.rs/javascript3d/classes/Cuboid.html
+ https://rapier.rs/javascript3d/classes/RoundCuboid.html
+ https://rapier.rs/javascript3d/classes/Capsule.html
+ https://rapier.rs/javascript3d/classes/Cone.html
+ https://rapier.rs/javascript3d/classes/Cylinder.html
+ https://rapier.rs/javascript3d/classes/ConvexPolyhedron.html
+ https://rapier.rs/javascript3d/classes/TriMesh.html
+ https://rapier.rs/javascript3d/classes/Heightfield.html
+
+ the way <RigidBody> amd <mesh> work regarding position and rotation is very similar, scale is not supported
+
+ 
