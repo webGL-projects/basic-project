@@ -122,4 +122,13 @@ the kinematic object has two important functions:
   1. Create a Three.js Euler
   2. Create a Three.js Quaternion
   3. Send that Quaterion to setNextKinematicRotation 
+
+## Events
+ we can listen to events by adding attributes on the <RigidBody> like:
+  1. onCollisionEnter: when the RigidBody hit something
+  2. onCollisionExit: when the RigidBody seperates from the object it just hit
+  3. onSleep: when the RigidBody starts sleeping
+  4. onWake: when the RigidBody stops sleeping
+
+sounds: we need to istantiate the audio, we are going to use useState in order to istantiate the audio onlyy once in case the componenet is beign re-rendered
  
