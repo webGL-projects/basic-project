@@ -210,7 +210,7 @@ function Bounds({ length = 1 }) {
         args={ [ 1, 0.1, 2 * length ] } 
         position={ [ 0, -0.1, - (length * 2 ) + 2 ] }
         restitution={ 0.2 }
-        friction= { 1 }
+        friction= { 1  }
         /> 
       </RigidBody>
     </>
